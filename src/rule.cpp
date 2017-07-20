@@ -6,6 +6,7 @@ Rule::Rule (string _name) :
   name(_name),
   fallbackMode(false),
   fallback(""),
+  totalWeight(0.0),
   recDepth(-1) // infinity
   {}
 
