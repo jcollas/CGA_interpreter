@@ -5,7 +5,7 @@ SRCS2 =	$(wildcard src/actions/*.cpp)
 SRCS3 =	$(wildcard src/split_pattern/*.cpp)
 SRCS4 =	$(wildcard src/cgacode/*.cpp)
 
-LIBS	=  -lCGAL -lCGAL_Core -lmpfr -lgmp -lboost_thread -lboost_system
+LIBS	=  -lCGAL -lCGAL_Core -lmpfr -lgmp -lboost_thread-mt -lboost_system
 CFLAGS = -Wall -std=c++11 -O3 -frounding-math
 
 OBJS	= $(addprefix obj/,$(notdir $(SRCS:.cpp=.o)))

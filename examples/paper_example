@@ -1,4 +1,5 @@
 initFromFile "plane.off"
+setOutputFilename "examples/paper_example.obj"
 
 %%
 

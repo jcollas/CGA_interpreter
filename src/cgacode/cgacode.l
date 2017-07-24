@@ -26,8 +26,7 @@
 %%
 
 [ \r\t]*				    ;
-"#".*				;
-"//".*				;
+("#"|"//").*	    { /* single line comment */ }
 initFromFile        { return token::INIT_FROM_FILE;}
 initFromRect        { return token::INIT_FROM_RECT;}
 setOutputFilename   { return token::SET_OUTPUT_FILENAME;}
@@ -40,8 +39,7 @@ setRoofTexture      { return token::SET_ROOF_TEXTURE;}
                       return token::STRING;}
 [0-9]+\.?[0-9]*     { yylval->fval = atof(yytext); return token::DOUBLE; }
 "%%"                { BEGIN(RULES); return token::SEPARATOR; }
-<RULES>"#".*			;
-<RULES>"//".*			;
+<RULES>("#"|"//").* { /* single line comment */ }
 <RULES>setRecDepth  { return token::SET_REC_DEPTH;}
 <RULES>fallback     { return token::FALLBACK;}
 <RULES>[a-zA-Z][a-zA-Z0-9]* {
